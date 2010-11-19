@@ -15,7 +15,23 @@ When /^the following files should be created:$/ do |table|
 end
 
 Then /^the file "([^"]*)" should contain the cucumber tasks$/ do |file|
-  tmp_dir = File.expand_path("../../tmp/aruba", File.dirname(__FILE__))
   contents = File.read(File.join(tmp_dir, @working_dir, file))
   contents.should include(BDDGen::Tasks.cucumber)
+end
+
+Then /^the file "([^"]*)" should contain the rspec tasks$/ do |file|
+  contents = File.read(File.join(tmp_dir, @working_dir, file))
+  contents.should include(BDDGen::Tasks.rspec)
+end
+
+Then /^the file "([^"]*)" should contain the bundler setup$/ do |file|
+  Then "the file \"#{file}\" should contain \"require 'rubygems'\""
+  Then "the file \"#{file}\" should contain \"require 'bundler'\""
+  Then "the file \"#{file}\" should contain \"require 'bundler/setup'\""
+end
+
+Then /^the file "([^"]*)" should match the template "([^"]*)"$/ do |file, template|
+  file_contents = File.read(File.join(tmp_dir, @working_dir, file))
+  template_contents = File.read(File.join(template_dir, template))
+  file_contents.strip.should == template_contents.strip
 end
