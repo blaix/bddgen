@@ -7,6 +7,10 @@ Keep in mind this is intended for plain vanilla ruby projects. If you're
 writing a rails app or something, there are probably generators better
 suited for the job.
 
+Also keep in mind: **This is very alpha.** Use at your own risk.
+Until at least version 1 you can't use the excuse "bddgen ate my homework!" because
+*I am warning you right now that that might happen*.
+
 ## Installation
 
 The usual:
