@@ -21,8 +21,9 @@ In your project's root directory...
 
     $ bddgen cucumber
 
-This will create a `features` skeleton, add the `cucumber` gem to your
-`Gemfile`, and set up your `Rakefile` with the following tasks:
+This will create a `features` directory with all the files you need to hit the
+ground running, add the `cucumber` gem to your `Gemfile`, and set up your
+`Rakefile` with the following tasks:
 
     rake features         # Run Cucumber features
     rake features:pretty  # Run Cucumber features with output in pretty format
