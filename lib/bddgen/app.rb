@@ -45,6 +45,23 @@ module BDDGen
       append_file ".gitignore", ".yardoc\n"
     end
     
+    desc "project name", "Generate a new ruby project named [name]"
+    def project(name)
+      empty_directory name
+      self.destination_root = name
+
+      empty_directory "lib/#{name}"
+      
+      init_gitignore
+      init_gemfile
+      init_rakefile
+      
+      add_file "CHANGELOG"
+      add_file "README.markdown"
+      
+      template "lib/project.erb", "lib/#{name}.rb"
+    end
+    
     private
     
     def project_name
