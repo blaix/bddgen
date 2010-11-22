@@ -24,6 +24,11 @@ Then /^the file "([^"]*)" should contain the rspec tasks$/ do |file|
   contents.should include(BDDGen::Tasks.rspec)
 end
 
+Then /^the file "([^"]*)" should contain the yard task$/ do |file|
+  contents = File.read(File.join(tmp_dir, @working_dir, file))
+  contents.should include(BDDGen::Tasks.yard(@working_dir))
+end
+
 Then /^the file "([^"]*)" should contain the bundler setup$/ do |file|
   Then "the file \"#{file}\" should contain \"require 'rubygems'\""
   Then "the file \"#{file}\" should contain \"require 'bundler'\""

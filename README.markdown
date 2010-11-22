@@ -33,6 +33,8 @@ ground running, add the `cucumber` gem to your `Gemfile`, and set up your
     rake features:pretty  # Run Cucumber features with output in pretty format
     rake features:wip     # Run @wip (Work In Progress) Cucumber features
 
+If you don't already have a `Gemfile` or `Rakefile`, one will be created.
+
 ### Rspec
 
     $ bddgen rspec
@@ -45,9 +47,18 @@ gem to your `Gemfile`, and set up your `Rakefile` with the following tasks:
 
 If you don't already have a `Gemfile` or `Rakefile`, one will be created.
 
+### For added convenience, you can also set up [yard](http://yardoc.org/):
+
+    $ bddgen yard
+
+This will add `doc/*` and `.yardoc` to your `.gitignore`, add the `yard` gem
+to your Gemfile, and set up a `yard` rake task.
+
+If you don't already have a `Gemfile`, `Rakefile`, or `.gitignore`, one will
+be created.
+
 ## TODO
 
-* `bddgen yard`
 * `bddgen project --cucumber --rspec --yard`
 * Add `--mock_framework=mocha` option to rspec generator.
 * Add destroy tasks

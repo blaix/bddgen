@@ -52,5 +52,3 @@ Feature: Generate rspec
       And the file "Rakefile" should contain "require 'special'"
       And the file "Rakefile" should contain the rspec tasks
       And the exit status should be 0
-
-# TODO: consolodate the steps that check the boilerplate Gemfile init

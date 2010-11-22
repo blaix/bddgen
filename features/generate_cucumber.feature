@@ -64,5 +64,3 @@ Feature: Generate cucumber
       And the file "Rakefile" should contain "require 'special'"
       And the file "Rakefile" should contain the cucumber tasks
       And the exit status should be 0
-      
-# TODO: consolodate the steps that check the boilerplate Gemfile init

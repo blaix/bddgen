@@ -32,6 +32,19 @@ module BDDGen
       copy_file "spec/spec_helper.rb"
     end
     
+    desc "yard", "Generate boilerplate for yard"
+    def yard
+      init_gemfile
+      append_gem 'yard'
+      
+      init_rakefile
+      append_task BDDGen::Tasks.yard(project_name)
+
+      init_gitignore
+      append_file ".gitignore", "doc/*\n"
+      append_file ".gitignore", ".yardoc\n"
+    end
+    
     private
     
     def project_name
@@ -39,7 +52,7 @@ module BDDGen
     end
     
     def init_gemfile
-      unless File.exist?(File.join(destination_root, "Gemfile"))
+      unless destination_file_exists?("Gemfile")
         add_file "Gemfile"
         append_file "Gemfile" do
           "source 'http://rubygems.org'\n\n" +
@@ -49,7 +62,7 @@ module BDDGen
     end
 
     def init_rakefile
-      unless File.exist?(File.join(destination_root, "Rakefile"))
+      unless destination_file_exists?("Rakefile")
         add_file "Rakefile"
         append_file "Rakefile" do
           "require 'rubygems'\n" +
@@ -59,13 +72,26 @@ module BDDGen
       end
     end
     
+    def init_gitignore
+      add_file ".gitignore" unless destination_file_exists?(".gitignore")
+      ensure_eof_newline(".gitignore")
+    end
+    
+    def destination_file_exists?(filename)
+      File.exist?(File.join(destination_root, filename))
+    end
+    
     def append_gem(gem_name)
-      gsub_file("Gemfile", /([^\n])\z/, "\\1\n") # ensure newline at eof
+      ensure_eof_newline("Gemfile")
       append_file "Gemfile", "gem '#{gem_name}'\n"
     end
     
     def append_task(the_task)
       append_file "Rakefile", "\n\n#{the_task}\n"
+    end
+    
+    def ensure_eof_newline(filename)
+      gsub_file(filename, /([^\n])\z/, "\\1\n")
     end
   end
 end
