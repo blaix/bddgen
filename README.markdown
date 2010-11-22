@@ -42,7 +42,6 @@ If you don't already have a `Gemfile` or `Rakefile`, one will be created.
 
 ## TODO
 
-* Cucumber generator should generate a `features/support/helpers.rb`
 * `bddgen yard`
 * `bddgen project --cucumber --rspec --yard`
 * Add `--mock_framework=mocha` option to rspec generator.
