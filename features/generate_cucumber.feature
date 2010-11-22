@@ -8,13 +8,29 @@ Feature: Generate cucumber
     When I run "bddgen cucumber"
     Then the following files should be created:
       | features/support/env.rb                      |
+      | features/support/helpers.rb                  |
       | features/step_definitions/myproject_steps.rb |
       | Gemfile                                      |
       | Rakefile                                     |
     And the file "features/support/env.rb" should match the template "features/support/env.rb"
-    And the file "Gemfile" should contain "source 'http://rubygems.org'"
-    And the file "Gemfile" should contain "gem 'rake'"
-    And the file "Gemfile" should contain "gem 'cucumber'"
+    And the file "features/support/helpers.rb" should contain exactly:
+      """
+      module Myproject
+        module CucumberHelpers
+        end
+      end
+      
+      World(Myproject::CucumberHelpers)
+      
+      """
+    And the file "Gemfile" should contain exactly:
+      """
+      source 'http://rubygems.org'
+      
+      gem 'rake'
+      gem 'cucumber'
+      
+      """
     And the file "Rakefile" should contain the bundler setup
     And the file "Rakefile" should contain the cucumber tasks
     And the exit status should be 0
@@ -27,9 +43,13 @@ Feature: Generate cucumber
         gem 'special'
         """
       When I run "bddgen cucumber"
-      Then the file "Gemfile" should contain "source 'http://custom.com'"
-      And the file "Gemfile" should contain "gem 'special'"
-      And the file "Gemfile" should contain "gem 'cucumber'"
+      Then the file "Gemfile" should contain exactly:
+        """
+        source 'http://custom.com'
+        gem 'special'
+        gem 'cucumber'
+        
+        """
       And the exit status should be 0
 
     Scenario: Run `bddgen cucumber` in a project with an existing Rakefile

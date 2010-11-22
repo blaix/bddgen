@@ -11,9 +11,14 @@ Feature: Generate rspec
       | Gemfile             |
       | Rakefile            |
     And the file "spec/spec_helper.rb" should match the template "spec/spec_helper.rb"
-    And the file "Gemfile" should contain "source 'http://rubygems.org'"
-    And the file "Gemfile" should contain "gem 'rake'"
-    And the file "Gemfile" should contain "gem 'rspec'"
+    And the file "Gemfile" should contain exactly:
+      """
+      source 'http://rubygems.org'
+      
+      gem 'rake'
+      gem 'rspec'
+      
+      """
     And the file "Rakefile" should contain the bundler setup
     And the file "Rakefile" should contain the rspec tasks
     And the exit status should be 0
@@ -26,9 +31,13 @@ Feature: Generate rspec
         gem 'special'
         """
       When I run "bddgen rspec"
-      Then the file "Gemfile" should contain "source 'http://custom.com'"
-      And the file "Gemfile" should contain "gem 'special'"
-      And the file "Gemfile" should contain "gem 'rspec'"
+      Then the file "Gemfile" should contain exactly:
+        """
+        source 'http://custom.com'
+        gem 'special'
+        gem 'rspec'
+        
+        """
       And the exit status should be 0
 
     Scenario: Run `bddgen rspec` in a project with an existing Rakefile

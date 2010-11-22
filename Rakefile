@@ -25,5 +25,18 @@ YARD::Rake::YardocTask.new do |t|
   t.options = ['--no-private', '--title', 'BDDGen API Documentation']
 end
 
-# Default is to run all features
-task :default => :features
+# Rake tasks
+require 'rspec/core/rake_task'
+desc "Run specs"
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts = %w(--color)
+end
+namespace :spec do
+  desc "Run specs with output in documentation format"
+  RSpec::Core::RakeTask.new(:doc) do |t|
+    t.rspec_opts = ["--color", "--format d"]
+  end
+end
+
+# Default is to run all specs and features
+task :default => [:spec, :features]

@@ -32,6 +32,8 @@ end
 
 Then /^the file "([^"]*)" should match the template "([^"]*)"$/ do |file, template|
   file_contents = File.read(File.join(tmp_dir, @working_dir, file))
-  template_contents = File.read(File.join(template_dir, template))
+  template = File.join(template_dir, template)
+  File.should exist(template)
+  template_contents = File.read(template)
   file_contents.strip.should == template_contents.strip
 end
