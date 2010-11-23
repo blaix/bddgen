@@ -46,16 +46,31 @@ Feature: Generate project
     When I run "bddgen project myproject --rspec"
     Then the output should say the following files were created:
       | spec/spec_helper.rb |
-      | Gemfile             |
-      | Rakefile            |
     And the following files should exist:
       | myproject/spec/spec_helper.rb |
-      | myproject/Gemfile             |
-      | myproject/Rakefile            |
     And the file "myproject/Gemfile" should contain "gem 'rspec'"
     And the file "myproject/Rakefile" should contain the rspec tasks
 
   Scenario: Run `bddgen project myproject --yard`
     When I run "bddgen project myproject --yard"
     Then the file "myproject/Gemfile" should contain "gem 'yard'"
+    And the file "myproject/Rakefile" should contain the yard task for "myproject"
+
+  Scenario: Run `bddgen project myproject --cucumber --rspec --yard`
+    When I run "bddgen project myproject --cucumber --rspec --yard"
+    Then the output should say the following files were created:
+      | features/step_definitions/myproject_steps.rb |
+      | features/support/env.rb                      |
+      | features/support/helpers.rb                  |
+      | spec/spec_helper.rb |
+    And the following files should exist:
+      | myproject/features/step_definitions/myproject_steps.rb |
+      | myproject/features/support/env.rb                      |
+      | myproject/features/support/helpers.rb                  |
+      | myproject/spec/spec_helper.rb |
+    And the file "myproject/Gemfile" should contain "gem 'cucumber'"
+    And the file "myproject/Gemfile" should contain "gem 'rspec'"
+    And the file "myproject/Gemfile" should contain "gem 'yard'"
+    And the file "myproject/Rakefile" should contain the cucumber tasks
+    And the file "myproject/Rakefile" should contain the rspec tasks
     And the file "myproject/Rakefile" should contain the yard task for "myproject"
