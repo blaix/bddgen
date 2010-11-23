@@ -28,3 +28,16 @@ Feature: Generate project
       
       """
     And the exit status should be 0
+
+  Scenario: Run `bddgen project myproject --cucumber`
+    When I run "bddgen project myproject --cucumber"
+    Then the output should say the following files were created:
+      | features/step_definitions/myproject_steps.rb |
+      | features/support/env.rb                      |
+      | features/support/helpers.rb                  |
+    And the following files should exist:
+      | myproject/features/step_definitions/myproject_steps.rb |
+      | myproject/features/support/env.rb                      |
+      | myproject/features/support/helpers.rb                  |
+    And the file "myproject/Gemfile" should contain "gem 'cucumber'"
+    And the file "myproject/Rakefile" should contain the cucumber tasks

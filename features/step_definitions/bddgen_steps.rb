@@ -19,18 +19,15 @@ Then /^the following files should be created:$/ do |table|
 end
 
 Then /^the file "([^"]*)" should contain the cucumber tasks$/ do |file|
-  contents = File.read(File.join(tmp_dir, @working_dir, file))
-  contents.should include(BDDGen::Tasks.cucumber)
+  read_temp_file(file).should include(BDDGen::Tasks.cucumber)
 end
 
 Then /^the file "([^"]*)" should contain the rspec tasks$/ do |file|
-  contents = File.read(File.join(tmp_dir, @working_dir, file))
-  contents.should include(BDDGen::Tasks.rspec)
+  read_temp_file(file).should include(BDDGen::Tasks.rspec)
 end
 
 Then /^the file "([^"]*)" should contain the yard task$/ do |file|
-  contents = File.read(File.join(tmp_dir, @working_dir, file))
-  contents.should include(BDDGen::Tasks.yard(@working_dir))
+  read_temp_file(file).should include(BDDGen::Tasks.yard(@working_dir))
 end
 
 Then /^the file "([^"]*)" should contain the bundler setup$/ do |file|
@@ -40,7 +37,7 @@ Then /^the file "([^"]*)" should contain the bundler setup$/ do |file|
 end
 
 Then /^the file "([^"]*)" should match the template "([^"]*)"$/ do |file, template|
-  file_contents = File.read(File.join(tmp_dir, @working_dir, file))
+  file_contents = read_temp_file(file)
   template = File.join(template_dir, template)
   File.should exist(template)
   template_contents = File.read(template)
