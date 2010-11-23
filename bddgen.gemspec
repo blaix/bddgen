@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Justin Blake"]
   s.email       = ["justin@hentzia.com"]
   s.homepage    = "http://rubygems.org/gems/bddgen"
-  s.summary     = %q{BDD generators for new or existing ruby projects.}
-  s.description = %q{Generate a new ruby project using BDD libraries like RSpec and Cucumber, or add them to existing projects.}
+  s.summary     = %q{Generators for cucumber, rspec, and other things.}
+  s.description = %q{Add cucumber, rspec (and other) boilerplate to your project, or generate a new project with them ready to roll.}
   s.rubyforge_project = "bddgen"
   
   s.add_dependency "thor"
