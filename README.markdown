@@ -68,6 +68,17 @@ directory with that name containing a `lib` directory skeleton, a
 `.gitignore`, `Gemfile`, `Rakefile`, `CHANGELOG`,
 and a `README.markdown`.
 
+You can pass a `--cucumber` option to generate the project with cucumber
+support:
+
+    $ bddgen project name --cucumber
+    
+This would basically be the same as running:
+
+    $ bddgen project name
+    $ cd name
+    $ bddgen cucumber
+
 ## TODO
 
 * support `bddgen project` options: `--cucumber`, `--rspec`, and `--yard`
