@@ -46,7 +46,7 @@ module BDDGen
     end
     
     desc "project name", "Generate a new ruby project named [name]"
-    method_options :cucumber => :boolean
+    method_options :cucumber => :boolean, :rspec => :boolean, :yard => :boolean
     def project(name)
       empty_directory name
       self.destination_root = name
@@ -63,6 +63,8 @@ module BDDGen
       template "lib/project.erb", "lib/#{name}.rb"
       
       cucumber if options.cucumber?
+      rspec    if options.rspec?
+      yard     if options.yard?
     end
     
     private

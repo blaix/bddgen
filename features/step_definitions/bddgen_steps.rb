@@ -30,6 +30,10 @@ Then /^the file "([^"]*)" should contain the yard task$/ do |file|
   read_temp_file(file).should include(BDDGen::Tasks.yard(@working_dir))
 end
 
+Then /^the file "([^"]*)" should contain the yard task for "([^"]*)"$/ do |file, working_dir|
+  read_temp_file(file).should include(BDDGen::Tasks.yard(working_dir))
+end
+
 Then /^the file "([^"]*)" should contain the bundler setup$/ do |file|
   Then "the file \"#{file}\" should contain \"require 'rubygems'\""
   Then "the file \"#{file}\" should contain \"require 'bundler'\""

@@ -41,3 +41,21 @@ Feature: Generate project
       | myproject/features/support/helpers.rb                  |
     And the file "myproject/Gemfile" should contain "gem 'cucumber'"
     And the file "myproject/Rakefile" should contain the cucumber tasks
+
+  Scenario: Run `bddgen project myproject --rspec`
+    When I run "bddgen project myproject --rspec"
+    Then the output should say the following files were created:
+      | spec/spec_helper.rb |
+      | Gemfile             |
+      | Rakefile            |
+    And the following files should exist:
+      | myproject/spec/spec_helper.rb |
+      | myproject/Gemfile             |
+      | myproject/Rakefile            |
+    And the file "myproject/Gemfile" should contain "gem 'rspec'"
+    And the file "myproject/Rakefile" should contain the rspec tasks
+
+  Scenario: Run `bddgen project myproject --yard`
+    When I run "bddgen project myproject --yard"
+    Then the file "myproject/Gemfile" should contain "gem 'yard'"
+    And the file "myproject/Rakefile" should contain the yard task for "myproject"
