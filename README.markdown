@@ -63,11 +63,13 @@ Build an entirely new project from scratch with:
 
     $ bddgen project name
     
-Where `name` is the name of your new project.
+Where `name` is the name of your new project. This will set up a new
+directory with that name containing a `lib` directory skeleton, a
+`.gitignore`, `Gemfile`, `Rakefile`, `CHANGELOG`,
+and a `README.markdown`.
 
 ## TODO
 
-* Further document `bddgen project`
 * support `bddgen project` options: `--cucumber`, `--rspec`, and `--yard`
 * `bddgen project` should ask if/how to create a `LICENSE` file
 * Add `--mock_framework=mocha` option to rspec generator.
