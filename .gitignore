@@ -3,5 +3,4 @@ tmp/*
 doc/*
 *.gem
 .bundle
-.rvmrc
 .yardoc
