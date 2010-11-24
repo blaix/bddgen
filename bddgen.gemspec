@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Justin Blake"]
   s.email       = ["justin@hentzia.com"]
-  s.homepage    = "http://rubygems.org/gems/bddgen"
+  s.homepage    = "https://github.com/blaix/bddgen"
   s.summary     = %q{Generators for cucumber, rspec, and other things.}
   s.description = %q{Add cucumber, rspec (and other) boilerplate to your project, or generate a new project with them ready to roll.}
   s.rubyforge_project = "bddgen"

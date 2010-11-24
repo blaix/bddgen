@@ -83,7 +83,6 @@ This would basically be the same as:
 
 ## TODO
 
-* support `bddgen project` options: `--cucumber`, `--rspec`, and `--yard`
 * `bddgen project` should ask if/how to create a `LICENSE` file
 * Add `--mock_framework=mocha` option to rspec generator.
 * Add destroy tasks
