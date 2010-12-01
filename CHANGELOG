@@ -1,3 +1,4 @@
-# 0.0.1 - November 18, 2010
+0.1.0 - November 23, 2010
+==========================
 
-* First version. Supports running `bddgen cucumber` in a fresh clean ruby project.
+* First version. You can generate rspec, cucumber, and yard boilerplate, or a whole new project.
