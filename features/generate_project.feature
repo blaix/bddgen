@@ -6,14 +6,14 @@ Feature: Generate project
   Scenario: Run `bddgen project myproject`
     When I run "bddgen project myproject"
     Then the output should say the following files were created:
-      | myproject        |
-      | .gitignore       |
-      | CHANGELOG        |
-      | Gemfile          |
-      | lib/myproject.rb |
-      | lib/version.rb |
-      | Rakefile         |
-      | README.markdown  |
+      | myproject                |
+      | .gitignore               |
+      | CHANGELOG                |
+      | Gemfile                  |
+      | lib/myproject.rb         |
+      | lib/myproject/version.rb |
+      | Rakefile                 |
+      | README.markdown          |
     And the following files should exist:
       | myproject/.gitignore       |
       | myproject/CHANGELOG        |
@@ -28,7 +28,7 @@ Feature: Generate project
       end
       
       """
-    And the file "myproject/lib/version.rb" should contain exactly:
+    And the file "myproject/lib/myproject/version.rb" should contain exactly:
       """
       module Myproject
         VERSION = "0.0.1"
@@ -70,12 +70,12 @@ Feature: Generate project
       | features/step_definitions/myproject_steps.rb |
       | features/support/env.rb                      |
       | features/support/helpers.rb                  |
-      | spec/spec_helper.rb |
+      | spec/spec_helper.rb                          |
     And the following files should exist:
       | myproject/features/step_definitions/myproject_steps.rb |
       | myproject/features/support/env.rb                      |
       | myproject/features/support/helpers.rb                  |
-      | myproject/spec/spec_helper.rb |
+      | myproject/spec/spec_helper.rb                          |
     And the file "myproject/Gemfile" should contain "gem 'cucumber'"
     And the file "myproject/Gemfile" should contain "gem 'rspec'"
     And the file "myproject/Gemfile" should contain "gem 'yard'"
