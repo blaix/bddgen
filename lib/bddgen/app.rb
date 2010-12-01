@@ -61,6 +61,7 @@ module BDDGen
       add_file "README.markdown"
       
       template "lib/project.erb", "lib/#{name}.rb"
+      template "lib/version.erb", "lib/version.rb"
       
       cucumber if options.cucumber?
       rspec    if options.rspec?

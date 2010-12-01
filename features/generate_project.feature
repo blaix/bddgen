@@ -11,6 +11,7 @@ Feature: Generate project
       | CHANGELOG        |
       | Gemfile          |
       | lib/myproject.rb |
+      | lib/version.rb |
       | Rakefile         |
       | README.markdown  |
     And the following files should exist:
@@ -24,6 +25,13 @@ Feature: Generate project
     And the file "myproject/lib/myproject.rb" should contain exactly:
       """
       module Myproject
+      end
+      
+      """
+    And the file "myproject/lib/version.rb" should contain exactly:
+      """
+      module Myproject
+        VERSION = "0.0.1"
       end
       
       """
