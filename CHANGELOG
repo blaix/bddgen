@@ -1,3 +1,8 @@
+0.2.0 - December 1, 2010
+=========================
+
+* Running `bddgen project [my_project]` now creates a lib/version.rb file.
+
 0.1.0 - November 23, 2010
 ==========================
 
