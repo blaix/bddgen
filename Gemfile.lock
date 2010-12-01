@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bddgen (0.2.0)
+    bddgen (0.2.1)
       thor
 
 GEM
