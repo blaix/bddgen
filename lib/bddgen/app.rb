@@ -5,7 +5,7 @@ module BDDGen
     include Thor::Actions
     
     def self.source_root
-      File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'templates'))
+      File.expand_path('../../templates', File.dirname(__FILE__))
     end
     
     desc "cucumber", "Generate boilerplate for cucumber"
