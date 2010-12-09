@@ -22,7 +22,6 @@ Feature: Generate yard
       """
     And the file "Rakefile" should contain the bundler setup
     And the file "Rakefile" should contain the yard task
-    And the exit status should be 0
     
   Scenario: Run `bddgen yard` in a project with an existing .gitignore
     Given a file named ".gitignore" with:
@@ -54,7 +53,6 @@ Feature: Generate yard
       gem 'yard'
       
       """
-    And the exit status should be 0
   
   Scenario: Run `bddgen yard` in a project with an existing Rakefile
     Given a file named "Rakefile" with:
@@ -66,4 +64,3 @@ Feature: Generate yard
     Then the file "Rakefile" should contain "require 'custom'"
     And the file "Rakefile" should contain "require 'special'"
     And the file "Rakefile" should contain the yard task
-    And the exit status should be 0

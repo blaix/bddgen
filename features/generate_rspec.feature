@@ -21,7 +21,6 @@ Feature: Generate rspec
       """
     And the file "Rakefile" should contain the bundler setup
     And the file "Rakefile" should contain the rspec tasks
-    And the exit status should be 0
     
     Scenario: Run `bddgen rspec` in a project with an existing Gemfile
       Given a current working directory named "myproject"
@@ -38,7 +37,6 @@ Feature: Generate rspec
         gem 'rspec'
         
         """
-      And the exit status should be 0
 
     Scenario: Run `bddgen rspec` in a project with an existing Rakefile
       Given a current working directory named "myproject"
@@ -51,4 +49,3 @@ Feature: Generate rspec
       Then the file "Rakefile" should contain "require 'custom'"
       And the file "Rakefile" should contain "require 'special'"
       And the file "Rakefile" should contain the rspec tasks
-      And the exit status should be 0

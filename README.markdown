@@ -88,4 +88,3 @@ This would basically be the same as:
 * Add destroy tasks
 * Add development dependency if a gemspec exists.
 * Don't assume use of bundler...?
-* Cucumber features sometimes fail with script exiting with a nil status instead of 0. Only sometimes. Haven't figured out why.

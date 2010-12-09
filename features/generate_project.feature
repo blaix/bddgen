@@ -35,7 +35,6 @@ Feature: Generate project
       end
       
       """
-    And the exit status should be 0
 
   Scenario: Run `bddgen project myproject --cucumber`
     When I run "bddgen project myproject --cucumber"

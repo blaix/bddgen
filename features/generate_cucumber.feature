@@ -33,7 +33,6 @@ Feature: Generate cucumber
       """
     And the file "Rakefile" should contain the bundler setup
     And the file "Rakefile" should contain the cucumber tasks
-    And the exit status should be 0
     
     Scenario: Run `bddgen cucumber` in a project with an existing Gemfile
       Given a current working directory named "myproject"
@@ -50,7 +49,6 @@ Feature: Generate cucumber
         gem 'cucumber'
         
         """
-      And the exit status should be 0
 
     Scenario: Run `bddgen cucumber` in a project with an existing Rakefile
       Given a current working directory named "myproject"
@@ -63,4 +61,3 @@ Feature: Generate cucumber
       Then the file "Rakefile" should contain "require 'custom'"
       And the file "Rakefile" should contain "require 'special'"
       And the file "Rakefile" should contain the cucumber tasks
-      And the exit status should be 0
