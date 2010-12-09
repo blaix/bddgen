@@ -1,3 +1,11 @@
+0.3.0 - December 9, 2010
+=========================
+
+Features
+---------
+* New command: running `bddgen version` (or -v or -V or --version) will show version number.
+
+
 0.2.1 - December 1, 2010
 =========================
 
