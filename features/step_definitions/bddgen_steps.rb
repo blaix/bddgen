@@ -47,3 +47,7 @@ Then /^the file "([^"]*)" should match the template "([^"]*)"$/ do |file, templa
   template_contents = File.read(template)
   file_contents.strip.should == template_contents.strip
 end
+
+Then /^I should see the current version number$/ do
+  Then "the output should contain \"#{BDDGen::VERSION}\""
+end

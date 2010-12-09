@@ -1,11 +1,19 @@
 require 'thor'
+require 'bddgen/version'
 
 module BDDGen
   class App < Thor
     include Thor::Actions
     
+    map %w(-v -V --version) => :version
+    
     def self.source_root
       File.expand_path('../../templates', File.dirname(__FILE__))
+    end
+    
+    desc "version", "Get the current version number"
+    def version
+      say BDDGen::VERSION
     end
     
     desc "cucumber", "Generate boilerplate for cucumber"
