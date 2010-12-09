@@ -45,7 +45,7 @@ module BDDGen
       append_file ".gitignore", ".yardoc\n"
     end
     
-    desc "project name", "Generate a new ruby project named [name]"
+    desc "project [NAME]", "Generate a new ruby project named [NAME]"
     method_options :cucumber => :boolean, :rspec => :boolean, :yard => :boolean
     def project(name)
       empty_directory name
