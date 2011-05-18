@@ -83,8 +83,8 @@ This would basically be the same as:
 
 ## TODO
 
+* Be smart enough to know when to add dependency to gemspec vs. Gemfile.
 * `bddgen project` should ask if/how to create a `LICENSE` file
 * Add `--mock_framework=mocha` option to rspec generator.
 * Add destroy tasks
-* Add development dependency if a gemspec exists.
 * Don't assume use of bundler...?
